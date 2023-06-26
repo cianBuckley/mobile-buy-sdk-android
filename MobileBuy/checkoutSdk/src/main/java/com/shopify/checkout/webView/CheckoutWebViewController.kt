@@ -11,20 +11,15 @@ import com.shopify.checkout.models.errors.InternalErrorReasons
 import com.shopify.checkout.models.errors.WebviewException
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import java.util.logging.Level
-import java.util.logging.Logger
 
-internal class WebViewController :
-    WebViewClient() {
-    internal var webView: WebView? = null
+open class CheckoutWebViewController: WebViewClient() {
+    var webView: WebView? = null
         set(value) {
             field = value
             setupWebView()
         }
     internal var defaults: Defaults? = null
     internal var webViewClientEventListener: WebViewClientEventListener? = null
-
-    internal var logger = Logger.getLogger("stuff")
 
     private fun setupWebView() {
         // Enable WebView debug with chrome
@@ -98,10 +93,6 @@ internal class WebViewController :
         webView?.evaluateJavascript(ScriptBuilder.submitPayment(), null)
     }
 
-    fun updateCart(lineId: String, quantity: Int) {
-        webView?.evaluateJavascript(ScriptBuilder.updateCart(lineId, quantity), null)
-    }
-
     override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
         onPageStartedSetup()
         super.onPageStarted(view, url, favicon)
@@ -123,10 +114,6 @@ internal object ScriptBuilder {
 
     fun submitPayment(cardServerSessionId: String): String {
         return "window.MobileCheckoutSdk.dispatchMessage('submitPayment', { detail: { sessionId: '$cardServerSessionId' }});"
-    }
-
-    fun updateCart(lineId: String, quantity: Int): String {
-        return "window.MobileCheckoutSdk.dispatchMessage('updateCart', { detail: { lineId: '$lineId', quantity: $quantity }});"
     }
 
     fun mobileCheckoutSdkKnownBuyerIdentity(defaults: Defaults): String {

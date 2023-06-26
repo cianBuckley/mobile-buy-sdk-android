@@ -4,11 +4,13 @@ import android.graphics.Color
 import android.widget.FrameLayout
 import com.shopify.checkout.models.CheckoutOptions
 import com.shopify.checkout.webMessage.MessageParserListener
-import com.shopify.checkout.webView.WebViewController
+import com.shopify.checkout.webView.CheckoutWebViewController
 
-class ShopifyCheckoutManager(private val eventListeners: ShopifyCheckoutEventListener) {
+open class ShopifyCheckoutManager(
+    private val eventListeners: ShopifyCheckoutEventListener,
+    var webViewController: CheckoutWebViewController = CheckoutWebViewController()
+    ) {
     private val shopifyCheckoutWebBridgeListener = MessageParserListener(eventListeners)
-    internal var webViewController: WebViewController = WebViewController()
 
     fun presentCheckout(url: String, layout: FrameLayout) {
         webViewController.defaults = null
@@ -37,10 +39,6 @@ class ShopifyCheckoutManager(private val eventListeners: ShopifyCheckoutEventLis
 
     fun completeCheckout(oneTimeVaultedToken: String) {
         webViewController.completeCheckout(oneTimeVaultedToken)
-    }
-
-    fun updateCart(lineId: String, quantity: Int) {
-        webViewController.updateCart(lineId, quantity)
     }
 
     fun version(): String {

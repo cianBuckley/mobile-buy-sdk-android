@@ -1,7 +1,7 @@
 package com.shopify.checkout
 
 import android.webkit.ValueCallback
-import com.shopify.checkout.webView.WebViewController
+import com.shopify.checkout.webView.CheckoutWebViewController
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -17,11 +17,11 @@ import org.mockito.kotlin.verify
 class WebViewControllerTest {
     @Mock
     internal lateinit var mockAndroidWebView: AndroidWebView
-    private lateinit var webViewController: WebViewController
+    private lateinit var webViewController: CheckoutWebViewController
 
     @Before
     fun init() {
-        webViewController = WebViewController()
+        webViewController = CheckoutWebViewController()
         webViewController.webView = mockAndroidWebView
     }
 

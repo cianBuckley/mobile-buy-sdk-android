@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import android.widget.FrameLayout
 import com.shopify.checkout.fixtures.models.CHECKOUT_DEFAULTS_FAKE
 import com.shopify.checkout.webMessage.MessageParserListener
-import com.shopify.checkout.webView.WebViewController
+import com.shopify.checkout.webView.CheckoutWebViewController
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.junit.Assert
@@ -19,11 +19,11 @@ import org.robolectric.shadows.ShadowWebView
 
 @RunWith(RobolectricTestRunner::class)
 class WebViewControllerWebViewSetupTest {
-    private lateinit var webViewController: WebViewController
+    private lateinit var webViewController: CheckoutWebViewController
 
     @Before
     fun init() {
-        webViewController = WebViewController()
+        webViewController = CheckoutWebViewController()
     }
 
     @Test
@@ -56,7 +56,7 @@ class WebViewControllerWebViewSetupTest {
         )
         val shadowWebView: ShadowWebView = Shadows.shadowOf(webView)
 
-        webViewController = WebViewController()
+        webViewController = CheckoutWebViewController()
         webViewController.webView = webView
         webViewController.loadCheckout("about:blank")
 
@@ -83,7 +83,7 @@ class WebViewControllerWebViewSetupTest {
         )
         val shadowWebView: ShadowWebView = Shadows.shadowOf(webView)
 
-        webViewController = WebViewController()
+        webViewController = CheckoutWebViewController()
         webViewController.webView = webView
         webViewController.defaults = CHECKOUT_DEFAULTS_FAKE
         webViewController.loadCheckout("about:blank")

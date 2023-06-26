@@ -4,7 +4,7 @@ import com.shopify.checkout.ShopifyCheckoutManager
 import com.shopify.checkout.ShopifyCheckoutEventListener
 import com.shopify.checkout.models.CheckoutOptions
 import com.shopify.checkout.models.Defaults
-import com.shopify.checkout.webView.WebViewController
+import com.shopify.checkout.webView.CheckoutWebViewController
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -17,13 +17,13 @@ import org.robolectric.RuntimeEnvironment
 @RunWith(RobolectricTestRunner::class)
 class ShopifyCheckoutManagerTest {
     private lateinit var mockEventListeners: ShopifyCheckoutEventListener
-    private lateinit var mockWebViewController: WebViewController
+    private lateinit var mockWebViewController: CheckoutWebViewController
     private lateinit var shopifyCheckoutManager: ShopifyCheckoutManager
 
     @Before
     fun setup() {
         mockEventListeners = Mockito.mock(ShopifyCheckoutEventListener::class.java)
-        mockWebViewController = Mockito.mock(WebViewController::class.java)
+        mockWebViewController = Mockito.mock(CheckoutWebViewController::class.java)
         shopifyCheckoutManager = ShopifyCheckoutManager(mockEventListeners)
         shopifyCheckoutManager.webViewController = mockWebViewController
     }

@@ -6,7 +6,7 @@ import com.shopify.checkout.models.CheckoutStatePayload
 import com.shopify.checkout.models.InitPayload
 import com.shopify.checkout.models.errors.ErrorPayload
 
-internal class MessageParserListener(private val eventListeners: ShopifyCheckoutEventListener) {
+class MessageParserListener(private val eventListeners: ShopifyCheckoutEventListener) {
     fun onStateChange(state: CheckoutStatePayload) {
         eventListeners.onStateChange(state)
     }

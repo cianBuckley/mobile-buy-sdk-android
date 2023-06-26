@@ -11,7 +11,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
-internal class AndroidWebView(
+class AndroidWebView(
     context: Context,
     listener: MessageParserListener,
 ) : WebView(context) {
