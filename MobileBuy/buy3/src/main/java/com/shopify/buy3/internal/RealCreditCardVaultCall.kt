@@ -24,7 +24,6 @@
 package com.shopify.buy3.internal
 
 import android.os.Handler
-import android.support.annotation.VisibleForTesting
 import com.shopify.buy3.CardVaultResult
 import com.shopify.buy3.CardVaultResultCallback
 import com.shopify.buy3.CreditCard

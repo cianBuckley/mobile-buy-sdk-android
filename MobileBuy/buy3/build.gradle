@@ -93,6 +93,7 @@ dependencies {
   implementation dep.kotlinStdLib
   implementation dep.timber
   implementation dep.graphqlSupport
+  implementation dep.checkoutSdkAndroid
 
   testImplementation dep.mockitoCore
   testImplementation dep.mockitokotlin

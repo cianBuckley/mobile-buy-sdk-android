@@ -10,6 +10,7 @@ dependencyResolutionManagement {
   repositories {
     google()
     mavenCentral()
+    maven { url "https://pkgs.shopify.io/${System.getenv("CLOUDSMITH_PASSWORD")}/jars/maven/" }
   }
 }
 

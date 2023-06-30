@@ -24,7 +24,7 @@
 package com.shopify.buy3
 
 import android.content.Context
-import android.support.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting
 import com.shopify.buy3.internal.RealMutationGraphCall
 import com.shopify.buy3.internal.RealQueryGraphCall
 import com.shopify.buy3.internal.cache.DiskLruCacheStore

@@ -8,7 +8,8 @@ def versions = [
     apolloVersion        : '1.0.0',
     archVersion          : '1.1.1',
     kotlin               : '1.8.0',
-    graphQlSupport       : '0.2.1'
+    graphQlSupport       : '0.2.1',
+    checkoutSdkAndroid   : 'v0.0.1'
 ]
 
 ext.isCi = "true" == System.getenv('CI')
@@ -49,5 +50,6 @@ ext.dep = [
     rxrelay                  : "com.jakewharton.rxrelay2:rxrelay:2.0.0",
     archComponents           : "android.arch.lifecycle:extensions:$versions.archVersion",
     gson                     : "com.google.code.gson:gson:2.8.6",
-    graphqlSupport           : "com.shopify.graphql.support:support:$versions.graphQlSupport"
+    graphqlSupport           : "com.shopify.graphql.support:support:$versions.graphQlSupport",
+    checkoutSdkAndroid       : "com.shopify:checkout-sdk-android:$versions.checkoutSdkAndroid"
 ]

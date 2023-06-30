@@ -13,6 +13,7 @@ subprojects {
       mavenCentral()
       maven { url "https://jitpack.io" }
       maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+      maven { url "https://pkgs.shopify.io/${System.getenv("CLOUDSMITH_PASSWORD")}/jars/maven/" }
     }
   }
 
@@ -22,6 +23,7 @@ subprojects {
     mavenCentral()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     maven { url 'https://maven.google.com' }
+    maven { url "https://pkgs.shopify.io/${System.getenv("CLOUDSMITH_PASSWORD")}/jars/maven/" }
   }
 
   apply from: "../gradle/dependencies.gradle"

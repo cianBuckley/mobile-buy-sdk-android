@@ -24,7 +24,7 @@
 package com.shopify.buy3.internal
 
 import android.os.Handler
-import android.support.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting
 import com.shopify.buy3.GraphCall
 import com.shopify.buy3.GraphCallResult
 import com.shopify.buy3.GraphCallResultCallback
